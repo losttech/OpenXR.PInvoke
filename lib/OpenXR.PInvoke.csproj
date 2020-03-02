@@ -4,10 +4,27 @@
     <TargetFramework>netstandard1.1</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Version>0.0.1</Version>
+    <Authors>Khronos Group, Lost Tech LLC</Authors>
+    <Company></Company>
+    <Product>OpenXR</Product>
+    <Description>Raw PInvoke bindings for OpenXR</Description>
+    <Copyright>© 2020 Lost Tech LLC</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/losttech/OpenXR.PInvoke</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/losttech/OpenXR.PInvoke.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>openxr</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="../gen/*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
