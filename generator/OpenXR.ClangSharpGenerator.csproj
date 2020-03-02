@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClangSharp.PInvokeGenerator" Version="9.0.0-beta" />
+    <PackageReference Include="CppSharp" Version="0.10.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="OpenXR.Loader" Version="1.0.6.2" GeneratePathProperty="true" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <OpenXRHeaders Include="$(PkgOpenXR_Loader)/include/**" />
+  </ItemGroup>
+
+  <Target Name="CopyOpenXRLoaderFiles" AfterTargets="Build">
+    <Copy SourceFiles="@(OpenXRHeaders)" DestinationFiles="@(OpenXRHeaders->'$(OutDir)include\%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
+</Project>
